@@ -26,7 +26,7 @@ target.clean = function() {
 target.build = function() {
     target.clean();
 
-    run('./node_modules/.bin/tsc --outDir ' + buildPath);
+    run('tsc --outDir ' + buildPath);
     // cp(rp('dependencies/typings.json'), buildPath);
     cp('-Rf', rp('lib/opensource'), buildPath);
     cp(rp('package.json'), buildPath);
@@ -46,7 +46,7 @@ target.test = function() {
     pushd('samples');
     run('npm install ../_build --production');
     popd();
-    run('./node_modules/.bin/tsc -p samples');
+    run('tsc -p samples');
 }
 
 target.samples = function() {
